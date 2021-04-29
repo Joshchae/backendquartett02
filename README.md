@@ -1,3 +1,8 @@
+// Comments // Group 3
+This is the part of Front-end of Auto Quartett
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
