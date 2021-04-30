@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import Sound from 'react-sound'
+import HelpMessage from './components/help'
 import useGame from './hooks/useGame'
 import useApi from './hooks/useApi'
 import useUI from './hooks/useUI'
@@ -8,8 +9,7 @@ import logo from "./Pictures/Battle.png"
 import Gamemusic from './Pictures/8_bit_boss_battle_4_by_eliteferrex.mp3'
 import Gamemusic2 from './Pictures/super_street_fighter_2_turbo_8_bit_music_ryu_stage_4297822133384776681.mp3'
 import './App.css';
-import { GiSpeaker, GiSpeakerOff } from 'react-icons/gi';
-
+import { GiSpeaker, GiSpeakerOff, GiHelp } from 'react-icons/gi';
 
 
 
@@ -39,16 +39,16 @@ function App() {
   const [currentValue, setCurrentValue] = useState()
 
   // State to show/hide the Help/Welcome Message
-  const [Help, Helpmessage] = useState ('active')
+  const [Help, setHelp] = useState('inactive')
 
-  // const handleHelp = () => {
-  //   if (Help === 'active') {
-  //     Helpmessage('inactive')
-  //   }
-  //   if (Help === 'inactive') {
-  //     Helpmessage('active')
-  //   }
-  // }
+  const handleHelp = () => {
+    if (Help === 'inactive') {
+      setHelp('active')
+    }
+    if (Help === 'active') {
+      setHelp('inactive')
+    }
+  }
 
   
 // *************** Handling the music *********************
@@ -117,12 +117,12 @@ function App() {
       return
     }
   }
-
-
-
-
+  
+  
+  
+  
   return (
-     <div className="App__wrapper">
+    <div className="App__wrapper">
       <img src={logo} className="App__logo" alt='Game Logo'/>
        <Sound 
          url={gameSong[Math.floor(Math.random() * gameSong.length)]}
@@ -130,11 +130,17 @@ function App() {
          loop={true}
          volume={10}
          autoLoad={true}      
-       />
+         />
        <div className='App_upperrightwrapper'>
           <div className="App__button--sound" onClick={handleMusic}>
           {music === 'PLAYING'? <GiSpeaker size={'4.8rem'}/> : <GiSpeakerOff size={'4.8rem'}/>}
           </div>       
+        <div>
+          <button className="App__button--help" onClick={handleHelp}>
+            <GiHelp size={'4.8rem'} />
+              {Help === 'inactive'? [] : <HelpMessage handleHelp={handleHelp} />}
+          </button>
+        </div>
           <button className="App__button--new-game" onClick={handleNewGame}>
             New Game
           </button>
@@ -156,9 +162,6 @@ function App() {
           
           
         </div>
-        {/* <div className="App_helptext">
-        {Help === 'active'? {HelpMessage} : {}}
-        </div>   */}
        </div> :
        ''
        }

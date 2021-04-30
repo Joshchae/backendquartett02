@@ -51,14 +51,31 @@ html {
   top: -10rem;  
 }
 
-
-.App__button--sound { 
+.App__button--help {
   width: 5rem;
   height: 5rem; 
   border: 2px solid yellow;
   border-radius: 50%;
   background-color: red;
+  margin-left: 2rem;
 }
+
+.App__button--sound { 
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid yellow;
+  border-radius: 50%;
+  background-color: red;
+}
+
+/* 
+.Help__message {
+
+}
+
+.Help__close {
+
+} */
 
 .App__gameover {
   position: absolute;
@@ -91,6 +108,10 @@ html {
 
 
 .App__button--sound:hover {
+  transform: scale(1.1);
+}
+
+.App__button--help:hover {
   transform: scale(1.1);
 }
 
