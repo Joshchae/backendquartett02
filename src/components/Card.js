@@ -47,7 +47,7 @@ const toggleClass = (evt) => {
       onClick={toggleClass} 
       stat={attribute.toLowerCase()}// e.g. 'height'
       className={`Character__attr ${currentValue === attribute.toLowerCase() ? 'Character__attr--active': null}`}
-      >{icons[attribute]} <p>{attribute}</p>{character[0].[attribute.toLowerCase()]}
+      >{icons[attribute]} <span>{attribute}</span>{character[0].[attribute.toLowerCase()]}
       </div> )}
     </div>
   </div>

@@ -6,7 +6,7 @@ const HelpMessage = ({handleHelp}) => {
     return (
         <div>
             <div className="Help__message">
-                Instructions:
+                <h3>Instructions:<br /></h3>
                 Welcome to the epic battle where the greatest heroes of all times test their skills in an ultimate showdown.
 
                 At first: Click the "New Game" button in the upper right corner to start the game and let the battle begin.
@@ -20,8 +20,10 @@ const HelpMessage = ({handleHelp}) => {
                 You win when your opponent has no cards left.
 
                 Now venture into battle, honour and glory await you.
+              
             </div>
             <button className="Help__close" onClick={handleHelp}>Close</button>
+            
         </div>
 )}
 

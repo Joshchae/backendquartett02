@@ -39,6 +39,7 @@
 }
 
 .Character__attr-wrapper {
+    padding: 1rem 1rem 1rem 1rem;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +47,8 @@
 }
 
 .Character__attr {
-    font-size: 1.5rem;
+    height: 22px;
+    font-size: 1.6rem;
     font-weight: bold;
     background-color: white;
     margin: 0.2rem;
@@ -54,7 +56,7 @@
     width: 72%;
     display: flex;
     justify-content: space-between;
-    padding: 0.2rem 2rem;
+    padding: 0.65rem 1rem 0.5rem 1rem;
 }
 
 .Character__attr:hover {
@@ -66,7 +68,7 @@
     
 }
 
-.Character__attr--active {    
+.Character__attr--active {   
     font-weight: bold;
     background-color: rgb(122, 122, 122);
     border: 2px solid red;    

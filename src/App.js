@@ -9,7 +9,8 @@ import logo from "./Pictures/Battle.png"
 import Gamemusic from './Pictures/8_bit_boss_battle_4_by_eliteferrex.mp3'
 import Gamemusic2 from './Pictures/super_street_fighter_2_turbo_8_bit_music_ryu_stage_4297822133384776681.mp3'
 import './App.css';
-import { GiSpeaker, GiSpeakerOff, GiHelp } from 'react-icons/gi';
+import { GiSpeaker, GiSpeakerOff } from 'react-icons/gi';
+import {BsQuestion} from 'react-icons/bs'
 
 
 
@@ -136,15 +137,16 @@ function App() {
           {music === 'PLAYING'? <GiSpeaker size={'4.8rem'}/> : <GiSpeakerOff size={'4.8rem'}/>}
           </div>       
         <div>
-          <button className="App__button--help" onClick={handleHelp}>
-            <GiHelp size={'4.8rem'} />
-              {Help === 'inactive'? [] : <HelpMessage handleHelp={handleHelp} />}
-          </button>
+            
         </div>
           <button className="App__button--new-game" onClick={handleNewGame}>
             New Game
           </button>
-      </div>  
+          <div className="App__button--help" onClick={handleHelp}>
+            <BsQuestion size={'4.8rem'} />                      
+          </div>   
+          
+      </div>        
        <div className="App__display-and-counter">
          <div className="App__counter App__counter--player">
            {isGameOn? gameState.cards.player.length : '0'}
@@ -158,13 +160,16 @@ function App() {
        
        <div className="App__gameover">
         <div className="App__gameover__text">
-          {winner === 'computer'? 'YOU LOST' : 'YOU WON'}
-          
+          {winner === 'computer'? 'YOU LOST' : 'YOU WON'}        
+
           
         </div>
        </div> :
        ''
        }
+
+     
+          {Help === 'inactive'? [] : <HelpMessage handleHelp={handleHelp} />}   
        <div className="App__characters">
          {isGameOn ? (
            <Card
