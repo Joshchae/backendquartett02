@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import Sound from 'react-sound'
-import HelpMessage from './components/help'
 import useGame from './hooks/useGame'
 import useApi from './hooks/useApi'
 import useUI from './hooks/useUI'
 import Card from './components/Card'
+import HelpMessage from './components/help'
 import logo from "./Pictures/Battle.png"
 import Gamemusic from './Pictures/8_bit_boss_battle_4_by_eliteferrex.mp3'
 import Gamemusic2 from './Pictures/super_street_fighter_2_turbo_8_bit_music_ryu_stage_4297822133384776681.mp3'
-import './App.css';
 import { GiSpeaker, GiSpeakerOff } from 'react-icons/gi';
 import {BsQuestion} from 'react-icons/bs'
+// BsPersonPlusFill
 
+import './App.css';
 
 
 function App() {
@@ -50,6 +51,18 @@ function App() {
       setHelp('inactive')
     }
   }
+
+  // State to show/hide Characters creation message
+  // const [newChar, setNewChar] = useState('inactive')
+
+  // const handleChar = () => {
+  //   if (newChar === 'inactive') {
+  //     setNewChar('active')
+  //   }
+  //   if (newChar === 'active') {
+  //     setNewChar('inactive')
+  //   }
+  // }
 
   
 // *************** Handling the music *********************
@@ -144,7 +157,7 @@ function App() {
           </button>
           <div className="App__button--help" onClick={handleHelp}>
             <BsQuestion size={'4.8rem'} />                      
-          </div>   
+          </div>
           
       </div>        
        <div className="App__display-and-counter">
@@ -156,20 +169,22 @@ function App() {
            {isGameOn? gameState.cards.computer.length : '0'}
          </div>                  
        </div>
+
        {isGameOver? 
        
        <div className="App__gameover">
         <div className="App__gameover__text">
-          {winner === 'computer'? 'YOU LOST' : 'YOU WON'}        
-
+          {winner === 'computer'? 'YOU LOST' : 'YOU WON'}
+          
           
         </div>
+        {/* <div className="App_helptext">
+        {Help === 'active'? {HelpMessage} : {}}
+        </div>   */}
        </div> :
        ''
        }
 
-     
-          {Help === 'inactive'? [] : <HelpMessage handleHelp={handleHelp} />}   
        <div className="App__characters">
          {isGameOn ? (
            <Card
@@ -204,7 +219,8 @@ function App() {
          ) : (
            <Card character={null} flipped={false} />
          )}
-       </div>          
+       </div>
+       {Help === 'inactive'? [] : <HelpMessage handleHelp={handleHelp} />}           
      </div>
  );}
  

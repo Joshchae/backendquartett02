@@ -10,7 +10,7 @@ function useApi() {
     // const { id } = useParams()
 
     useEffect(() => {
-      const apiUrl = 'http://localhost:5000/'
+      const apiUrl = process.env.NODE_ENV === 'production' ? 'https://blooming-lowlands-37264.herokuapp.com/' : 'http://localhost:5000/';
       const requestUsers = axios.get(`${apiUrl}users`)
       axios.all(([requestUsers]))
       .then(([userData]) => {
